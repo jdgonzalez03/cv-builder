@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { usePdfExport } from "../hooks/usePdfExport";
 import { Button } from "./common/Button";
 import { DocumentIcon, DownloadIcon, GithubIcon } from "./Icons";
@@ -8,6 +9,9 @@ export function Header() {
 	const handleDownload = () => {
 		const cvIdElement = import.meta.env.VITE_CV_ID_ELEMENT;
 		exportToPdf(cvIdElement, "cv.pdf");
+		setTimeout(() => {
+			toast.success("Your CV is being downloaded!");
+		}, 2500);
 	};
 	return (
 		<header className="flex items-center justify-between border-b border-solid border-gray-200 bg-white  px-6 py-3 z-10">

@@ -4,6 +4,7 @@ import { EducationSection } from "./cv/EducationSection";
 import { ExperienceSection } from "./cv/ExperienceSection";
 import { SkillsSection } from "./cv/SkillsSection";
 
+import { toast } from "sonner";
 import { usePdfExport } from "../hooks/usePdfExport";
 import { ContactSection } from "./cv/ContactSection";
 import { LanguagesSection } from "./cv/LanguagesSection";
@@ -17,6 +18,10 @@ export function CvEditor() {
 		const cvIdElement = import.meta.env.VITE_CV_ID_ELEMENT;
 
 		exportToPdf(cvIdElement, "cv.pdf");
+
+		setTimeout(() => {
+			toast.success("Your CV is being downloaded!");
+		}, 2500);
 	};
 	return (
 		<aside className="flex w-112.5 flex-col overflow-y-auto border-r border-gray-200 bg-white h-full max-h-full">

@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import { CvEditor } from "./components/CvEditor";
 import { CvPreview } from "./components/CvPreview";
 import { Header } from "./components/Header";
@@ -12,6 +13,7 @@ function App() {
 				<CvEditor />
 				<CvPreview id={cvIdElement} />
 			</Layout>
+			<Toaster richColors />
 		</div>
 	);
 }
