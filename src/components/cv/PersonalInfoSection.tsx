@@ -43,7 +43,7 @@ export function PersonalInfoSection() {
 				</div>
 
 				<InputField
-					labelText="Jon Title"
+					labelText="Job Title"
 					placeholder="FullStack Developer"
 					value={personalInfo.jobTitle || ""}
 					onChange={handleJobTitleChange}
