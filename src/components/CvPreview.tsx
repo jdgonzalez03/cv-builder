@@ -16,7 +16,7 @@ export function CvPreview({ id }: Props) {
 	} = useAppSelector((state) => state.cv);
 
 	return (
-		<section className="custom-scrollbar flex flex-1 flex-col items-center overflow-y-auto bg-[#eef2f6] px-4 py-10 dark:bg-[#0b0e14] h-full max-h-full">
+		<section className="custom-scrollbar flex flex-1 flex-col items-center overflow-y-auto bg-[#eef2f6] px-4 py-10 h-full max-h-full">
 			{/* PAPER */}
 			<div
 				id={id}
