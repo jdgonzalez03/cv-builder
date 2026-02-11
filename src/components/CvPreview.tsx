@@ -130,7 +130,9 @@ export function CvPreview({ id }: Props) {
 													{exp.position}
 												</h4>
 												<span className="text-[11px] font-bold text-gray-400">
-													{exp.startDate} — {exp.endDate || "PRESENT"}
+													{exp.startDate.split("-").reverse().join("/")} —{" "}
+													{exp.endDate?.split("-").reverse().join("/") ||
+														"PRESENT"}
 												</span>
 											</div>
 											<p className="mb-2 text-[12px] font-medium text-gray-500">
@@ -162,7 +164,9 @@ export function CvPreview({ id }: Props) {
 													{edu.degree}
 												</h4>
 												<span className="text-[11px] font-bold text-gray-400">
-													{edu.startDate} — {edu.endDate || "PRESENT"}
+													{edu.startDate.split("-").reverse().join("/")} —{" "}
+													{edu.endDate?.split("-").reverse().join("/") ||
+														"PRESENT"}
 												</span>
 											</div>
 											<p className="text-[12px] text-gray-500">
