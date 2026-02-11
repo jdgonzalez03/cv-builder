@@ -17,6 +17,7 @@ export function SummarySection() {
 					value={summary.text}
 					onChange={handleSummaryChange}
 					placeholder="Briefly describe your career and goals..."
+					maxLength={700}
 				/>
 			</div>
 		</AccordionSection>

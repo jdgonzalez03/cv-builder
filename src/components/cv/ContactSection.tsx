@@ -37,6 +37,8 @@ export function ContactSection() {
 						value={contactInfo?.email || ""}
 						placeholder="joe@example.com"
 						onChange={handleUpdateEmail}
+						type="email"
+						maxLength={100}
 					/>
 				</div>
 
@@ -46,6 +48,8 @@ export function ContactSection() {
 						value={contactInfo?.phone || ""}
 						placeholder="+57 301 499 5544"
 						onChange={handleUpdatePhone}
+						type="tel"
+						maxLength={20}
 					/>
 				</div>
 
@@ -55,6 +59,7 @@ export function ContactSection() {
 						value={contactInfo?.city || ""}
 						placeholder="City"
 						onChange={hanldeUpdateCity}
+						maxLength={50}
 					/>
 
 					<InputField
@@ -62,6 +67,7 @@ export function ContactSection() {
 						value={contactInfo?.country || ""}
 						placeholder="Country"
 						onChange={hanldeUpdateCountry}
+						maxLength={50}
 					/>
 				</div>
 
@@ -71,6 +77,7 @@ export function ContactSection() {
 						placeholder="https://joe-rivers.com"
 						value={contactInfo?.portfolio || ""}
 						onChange={handleUpdatePortfolio}
+						maxLength={200}
 					/>
 				</div>
 			</div>

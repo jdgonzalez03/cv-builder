@@ -33,12 +33,14 @@ export function PersonalInfoSection() {
 						value={personalInfo.firstName || ""}
 						placeholder="Joe"
 						onChange={handleFirstNameChange}
+						maxLength={50}
 					/>
 					<InputField
 						labelText="Last Name"
 						placeholder="Rivers"
 						value={personalInfo.lastName || ""}
 						onChange={handleLastNameChange}
+						maxLength={50}
 					/>
 				</div>
 
@@ -47,6 +49,7 @@ export function PersonalInfoSection() {
 					placeholder="FullStack Developer"
 					value={personalInfo.jobTitle || ""}
 					onChange={handleJobTitleChange}
+					maxLength={100}
 				/>
 			</div>
 		</AccordionSection>

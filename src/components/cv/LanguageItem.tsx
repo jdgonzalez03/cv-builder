@@ -31,6 +31,7 @@ export function LanguageItem({ language }: Props) {
 				<InputField
 					labelText="Language"
 					value={language.language}
+					maxLength={50}
 					placeholder="e.g., English, Spanish, French"
 					onChange={(value) => {
 						updateLanguage({ ...language, language: value });
@@ -42,6 +43,7 @@ export function LanguageItem({ language }: Props) {
 				<InputField
 					labelText="Proficiency Level"
 					value={language.level}
+					maxLength={50}
 					placeholder="e.g., Native, Fluent, B2, Elementary"
 					onChange={(value) => {
 						updateLanguage({ ...language, level: value });

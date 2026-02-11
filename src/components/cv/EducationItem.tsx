@@ -55,6 +55,7 @@ export function EducationItem({ education }: Props) {
 					labelText="Start Date"
 					value={education.startDate}
 					placeholder="MM/YYYY"
+					type="month"
 					onChange={(value) => {
 						updateEducation({ ...education, startDate: value });
 					}}
@@ -63,6 +64,7 @@ export function EducationItem({ education }: Props) {
 					labelText="End Date"
 					value={education.endDate || ""}
 					placeholder="MM/YYYY or leave empty"
+					type="month"
 					onChange={(value) => {
 						updateEducation({ ...education, endDate: value });
 					}}
@@ -72,6 +74,7 @@ export function EducationItem({ education }: Props) {
 			<TextArea
 				value={education.description || ""}
 				placeholder="Describe your academic achievements, honors, relevant coursework, or activities..."
+				maxLength={700}
 				onChange={(value: string) => {
 					updateEducation({ ...education, description: value });
 				}}

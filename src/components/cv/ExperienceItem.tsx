@@ -35,6 +35,7 @@ export function ExperienceItem({ experience }: Props) {
 					labelText="Company"
 					value={experience.company}
 					placeholder="Company name"
+					maxLength={100}
 					onChange={(value) => {
 						updateExperience({ ...experience, company: value });
 					}}
@@ -45,6 +46,7 @@ export function ExperienceItem({ experience }: Props) {
 					labelText="Position"
 					value={experience.position}
 					placeholder="Job title"
+					maxLength={100}
 					onChange={(value) => {
 						updateExperience({ ...experience, position: value });
 					}}
@@ -56,6 +58,7 @@ export function ExperienceItem({ experience }: Props) {
 					labelText="Start Date"
 					value={experience.startDate}
 					placeholder="MM/YYYY"
+					type="month"
 					onChange={(value) => {
 						updateExperience({ ...experience, startDate: value });
 					}}
@@ -64,6 +67,7 @@ export function ExperienceItem({ experience }: Props) {
 					labelText="End Date"
 					value={experience.endDate || ""}
 					placeholder="MM/YYYY or leave empty"
+					type="month"
 					onChange={(value) => {
 						updateExperience({ ...experience, endDate: value });
 					}}
@@ -73,6 +77,7 @@ export function ExperienceItem({ experience }: Props) {
 			<TextArea
 				value={experience.description}
 				placeholder="Describe your responsibilities and achievements..."
+				maxLength={700}
 				onChange={(value) => {
 					updateExperience({ ...experience, description: value });
 				}}
