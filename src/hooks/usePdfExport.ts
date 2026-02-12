@@ -5,19 +5,28 @@ import { useCallback } from "react";
 export const usePdfExport = () => {
 	const exportToPdf = useCallback(
 		async (elementId: string, filename: string) => {
-			const element = document.getElementById(elementId);
-			if (!element) return;
+			// Search for the main element
+			const mainElement = document.getElementById(elementId);
+			if (!mainElement) {
+				console.error(`Element with id "${elementId}" not found`);
+				return;
+			}
 
-			// Use HTML2Canvas to convert the DOM element to a canvas (Support Tailwind styles)
-			const canvas = await html2canvas(element, {
-				scale: 3, // 🔥 nitidez
-				useCORS: true,
-				backgroundColor: "#ffffff",
-				logging: false,
-			});
+			// Search for all pages (including the main and additional pages)
+			const pages: HTMLElement[] = [mainElement];
 
-			// Convert canvas to image
-			const imgData = canvas.toDataURL("image/jpeg", 0.98);
+			// Search for additional pages with IDs like "cv-page-2", "cv-page-3", etc.
+			let pageIndex = 2;
+			while (true) {
+				const pageElement = document.getElementById(
+					`${elementId}-page-${pageIndex}`,
+				);
+				if (!pageElement) break;
+				pages.push(pageElement);
+				pageIndex++;
+			}
+
+			console.log(`Found ${pages.length} page(s) to export`);
 
 			// Create PDF A4
 			const pdf = new jsPDF({
@@ -26,28 +35,38 @@ export const usePdfExport = () => {
 				format: "a4",
 			});
 
-			// Calculate dimensions
 			const pdfWidth = pdf.internal.pageSize.getWidth();
 			const pdfHeight = pdf.internal.pageSize.getHeight();
 
-			const imgWidth = pdfWidth;
-			const imgHeight = (canvas.height * imgWidth) / canvas.width;
+			// Process each page
+			for (let i = 0; i < pages.length; i++) {
+				const pageElement = pages[i];
 
-			// Auto-pagination
-			let heightLeft = imgHeight;
-			let position = 0;
+				// Convert the page to canvas
+				const canvas = await html2canvas(pageElement, {
+					scale: 3, // 🔥 nitidez
+					useCORS: true,
+					backgroundColor: "#ffffff",
+					logging: false,
+				});
 
-			pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
-			heightLeft -= pdfHeight;
+				// Convert the canvas to an image
+				const imgData = canvas.toDataURL("image/jpeg", 0.98);
 
-			while (heightLeft > 0) {
-				position = heightLeft - imgHeight;
-				pdf.addPage();
-				pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
-				heightLeft -= pdfHeight;
+				// Calculate dimensions maintaining the aspect ratio
+				const imgWidth = pdfWidth;
+				const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+				// If it's not the first page, add a new page to the PDF
+				if (i > 0) {
+					pdf.addPage();
+				}
+
+				// Add the image to the PDF page
+				const yOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 0;
+				pdf.addImage(imgData, "JPEG", 0, yOffset, imgWidth, imgHeight);
 			}
 
-			// Download PDF
 			pdf.save(filename);
 		},
 		[],
