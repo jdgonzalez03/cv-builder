@@ -307,7 +307,7 @@ export function CvPreview({ id }: Props) {
 
 			<div className="h-10" />
 
-			{/* Footer */}
+			{/* Footer TODO: Extract to component with links to social media */}
 			<footer className="mt-4 text-center text-sm text-gray-500">
 				Made With Love by{" "}
 				<a
