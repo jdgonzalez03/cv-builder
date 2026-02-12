@@ -11,6 +11,9 @@ interface PageContent {
 	education: Education[];
 }
 
+/**
+ * TODO: Refactor this component
+ */
 export function CvPreview({ id }: Props) {
 	const {
 		personalInfo,
