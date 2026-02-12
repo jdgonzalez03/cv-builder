@@ -22,7 +22,7 @@ export function Header() {
 				</div>
 				<h2 className="text-lg font-bold leading-tight tracking-tight">
 					CV Builder
-					<span className="text-xs font-normal text-gray-500 ml-2">v0.1</span>
+					<span className="text-xs font-normal text-gray-500 ml-2">v0.4</span>
 				</h2>
 			</div>
 			{/* ACTIONS */}
