@@ -306,6 +306,19 @@ export function CvPreview({ id }: Props) {
 			))}
 
 			<div className="h-10" />
+
+			{/* Footer */}
+			<footer className="mt-4 text-center text-sm text-gray-500">
+				Made With Love by{" "}
+				<a
+					href="https://github.com/jdgonzalez03"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="font-medium text-gray-700 hover:text-black transition-colors"
+				>
+					jdgonzalez03
+				</a>
+			</footer>
 		</section>
 	);
 }
