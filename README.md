@@ -60,6 +60,7 @@ The application uses environment variables for configuration:
 
 ### Future Enhancements
 - **Templates**: Multiple CV templates to choose from
+- **Projects**: Add Projects section
 - **Cloud Storage**: Save and load CVs from cloud storage
 - **Dark Mode**: Toggle between light and dark themes
 - **Editor Modes**: Toggle between editor modes (JSON or YAML)
