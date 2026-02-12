@@ -27,17 +27,15 @@ export function SkillBadge({ skill, onRemove, onLevelChange }: Props) {
 	};
 
 	return (
-		<div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1.5 text-sm dark:bg-gray-800">
-			<span className="font-medium text-gray-900 dark:text-white">
-				{skill.name}
-			</span>
+		<div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1.5 text-sm">
+			<span className="font-medium text-gray-900">{skill.name}</span>
 
 			<div className="flex items-center gap-0.5">{renderStars()}</div>
 
 			<button
 				type="button"
 				onClick={onRemove}
-				className="ml-1 rounded-full p-0.5 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+				className="ml-1 rounded-full p-0.5 text-gray-400 hover:bg-gray-200 hover:text-gray-600"
 			>
 				<CloseIcon className="size-3" />
 			</button>
